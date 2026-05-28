@@ -102,6 +102,12 @@ var vertexAIConfig []byte
 //go:embed configs/xai.json
 var xAIConfig []byte
 
+//go:embed configs/xiaomi-mimo.json
+var xiaomiMimoConfig []byte
+
+//go:embed configs/xiaomi-mimo-token-plan.json
+var xiaomiMimoTokenPlanConfig []byte
+
 //go:embed configs/zai.json
 var zAIConfig []byte
 
@@ -150,6 +156,8 @@ var providerRegistry = []ProviderFunc{
 	vercelProvider,
 	veniceProvider,
 	vertexAIProvider,
+	xiaomiMimoProvider,
+	xiaomiMimoTokenPlanProvider,
 	zhipuProvider,
 	zhipuCodingProvider,
 }
@@ -294,6 +302,14 @@ func vertexAIProvider() catwalk.Provider {
 
 func xAIProvider() catwalk.Provider {
 	return loadProviderFromConfig(xAIConfig)
+}
+
+func xiaomiMimoProvider() catwalk.Provider {
+	return loadProviderFromConfig(xiaomiMimoConfig)
+}
+
+func xiaomiMimoTokenPlanProvider() catwalk.Provider {
+	return loadProviderFromConfig(xiaomiMimoTokenPlanConfig)
 }
 
 func zAIProvider() catwalk.Provider {
